@@ -145,7 +145,7 @@ CRUD:
 
 
 User model
- 
+``` 
 
 username: String
 email: String
