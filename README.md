@@ -143,23 +143,48 @@ CRUD:
 
 ## Models
 
+---------------------------------------------------------------------------------------------
 User model
  
 ```
 username: String
+email: String
 password: String
-```
+reviews: [{type objectid model Review}]
+comments: [{type objectid model Comment}]
 
-Event model
+
+---------------------------------------------------------------------------------------------
+
+Game model
 
 ```
-owner: ObjectId<User>
-name: String
+apiId: String
+reviews: [{type objectid model Review}]
+
+---------------------------------------------------------------------------------------------
+Review model
+ 
+```
+author: {type objectid model User}
+comments: [{type objectid model Comment}]
+likes: [{User}]
+title: String
 description: String
-date: Date
-location: String
-attendees: [ObjectId<User>]
-``` 
+imageUrl: String
+videoUrl: String
+
+
+---------------------------------------------------------------------------------------------
+
+Comment model
+
+```
+author: {type objectid model User}
+text: String
+
+---------------------------------------------------------------------------------------------
+
 
 ## Links
 
