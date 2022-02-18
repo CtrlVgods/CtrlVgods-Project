@@ -12,6 +12,8 @@ var app = express();
 require('./config/db')
 require('./config/global')(app)
 
+const userRoutes = require("./routes/user.routes.js")
+app.use("/user", userRoutes)
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
