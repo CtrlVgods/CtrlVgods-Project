@@ -4,7 +4,7 @@ var createError = require("http-errors");
 var express = require("express");
 
 var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
+
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user.routes.js")
 
@@ -14,13 +14,13 @@ var app = express();
 require("./config/db");
 require("./config/global")(app);
 
-app.use("/user", userRoutes)
+
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
+app.use("/user", userRoutes)
 app.use("/auth", authRoutes);
+
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
