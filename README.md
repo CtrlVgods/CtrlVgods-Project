@@ -146,21 +146,22 @@ CRUD:
 
 User model
  
-```
+
 username: String
 email: String
 password: String
 reviews: [{type objectid model Review}]
 comments: [{type objectid model Comment}]
 
-
-
+```
 
 Game model
 
 ```
 apiId: String
 reviews: [{type objectid model Review}]
+
+```
 
 Review model
  
@@ -173,8 +174,7 @@ description: String
 imageUrl: String
 videoUrl: String
 
-
-
+```
 
 Comment model
 
@@ -182,8 +182,7 @@ Comment model
 author: {type objectid model User}
 text: String
 
-
-
+```
 
 ## Links
 
