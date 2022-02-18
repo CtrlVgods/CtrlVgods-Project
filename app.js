@@ -3,10 +3,11 @@ require("dotenv").config();
 var createError = require("http-errors");
 var express = require("express");
 
-var indexRouter = require("./routes/index");
 
-const authRoutes = require("./routes/auth");
-const userRoutes = require("./routes/user.routes.js")
+const indexRoutes= require("./routes/index.routes");
+const authRoutes = require("./routes/auth.routes");
+const gamesRoutes = require("./routes/games.routes");
+const userRoutes = require("./routes/user.routes")
 
 var app = express();
 
@@ -16,9 +17,10 @@ require("./config/global")(app);
 
 
 
-app.use('/', indexRouter);
-app.use("/user", userRoutes)
+app.use('/', indexRoutes);
 app.use("/auth", authRoutes);
+app.use("/games", gamesRoutes);
+app.use("/user", userRoutes)
 
 
 
