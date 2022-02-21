@@ -7,99 +7,61 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 const saltRounds = 5;
 
 router.post("/signup", isLoggedOut, (req, res) => {
-    const { username, password } = req.body;
-  
-    if (!username) {
-      return res
-        .status(400)
-        .render("auth/signup", { errorMessage: "Please, provide a username!" });
-    }
-  
-    if (password.length < 5) {
-      return res.status(400).render("auth/signup", {
-        errorMessage: "Your password needs to be at least 5 characters long.",
-      });
-    };
+  //GET VALUES
+  const { username, email, password } = req.body;
+  //VALIDATE
+  if (!username || !password || !email) {
+    res.render("auth/signup", { errorMessage: "Something went wrong" });
+  }
+  //Check if user already exists
+  User.findOne({ username: username })
+    .then((user) => {
+      if (user) {
+        res.render("auth/signup", { errorMessage: "This user already exists" });
+        return;
+      } else {
+        const salt = bcrypt.genSaltSync(saltRounds);
+        const hash = bcrypt.hashSync(password, salt);
 
-    User.findOne({ username }).then((found) => {
-      if (found) {
-        return res
-          .status(400)
-          .render("auth.signup", { errorMessage: "Username already in use! Please provide a different one!" });
-      }  
-      // If user NOT found, CREATE user and HASH pwd!
-      return bcrypt
-        .genSalt(saltRounds)
-        .then((salt) => bcrypt.hash(password, salt))
-        .then((hashedPassword) => {
-          // CREATE USER and save in DB  
-          return User.create({
-            username,
-            password: hashedPassword,
-          });
-        })
-        .then((user) => {
-          // BIND USER to SESSION object
-          req.session.user = user;
-          res.redirect("/");
-        })
-        // ERROR CATCHING
-        .catch((error) => {
-          if (error instanceof mongoose.Error.ValidationError) {
-            return res
-              .status(400)
-              .render("auth/signup", { errorMessage: error.message });
-          }
-          if (error.code === 11000) {
-            return res.status(400).render("auth/signup", {
-              errorMessage:
-                "Username need to be unique. The username you chose is already in use.",
-            });
-          }
-          return res
-            .status(500)
-            .render("auth/signup", { errorMessage: error.message });
-        });
-    });
+        User.create({ username, email, password: hash })
+          .then((newUser) => {
+            console.log(newUser);
+            res.redirect("/auth/login");
+          })
+          .catch((err) => console.log(err));
+      }
+    })
+    .catch((err) => console.log(err));
 });
 
-router.post("/login", isLoggedOut, (req, res, next) => {
+router.post("/login", isLoggedOut, (req, res) => {
+  //GET VALUES
   const { username, password } = req.body;
 
-  if (!username) {
-    return res
-      .status(400)
-      .render("auth/login", { errorMessage: "Please provide your username." });
-  }
+  console.log("test");
 
-  if (password.length < 5) {
-    return res.status(400).render("auth/login", {
-      errorMessage: "Your password needs to be at least 5 characters long.",
-    });
-  }
-  // Search in DB the USERNAME
-  User.findOne({ username })
+  //VALIDATE
+  /*if (!username || !password) {
+    res.render("auth/signup", { errorMessage: "Something went wrong" });
+  }*/
+
+    User.findOne({ username })
     .then((user) => {
       if (!user) {
-        return res
-          .status(400)
-          .render("auth/login", { errorMessage: "Wrong credentials." });
-      }
-      // Check if PWD matches the one in the DB
-      bcrypt.compare(password, user.password).then((isSamePassword) => {
-        if (!isSamePassword) {
-          return res
-            .status(400)
-            .render("auth/login", { errorMessage: "Wrong credentials." });
+        res.render("auth/login", { errorMessage: "Input invalid" });
+      } else {
+        const encryptedPassword = user.password;
+        const passwordCorrect = bcrypt.compareSync(password, encryptedPassword);
+
+        if (passwordCorrect) {
+          req.session.currentUser = user;
+          res.redirect("/");
+        } else {
+          res.render("auth/login", { errorMessage: "Input invalid" });
         }
-        req.session.user = user;
-        return res.redirect("/");
-      });
+      }
     })
-    // ERROR HANDLING HANDLES THIS
-    .catch((err) => {
-      next(err);
-    });
+    .catch((err) => console.log(err));
 });
 
 router.get("/logout", isLoggedIn, (req, res) => {
