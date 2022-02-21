@@ -1,7 +1,8 @@
 const { Schema, model } = require('mongoose');
 
 const gameSchema = new Schema({
-	apiId: String,
+	id: String,
+	title: String,
 	reviews: [{ type: Schema.Types.ObjectId, ref: 'Review', default: [] }],
    // rates: [[Number,author]]
 });
