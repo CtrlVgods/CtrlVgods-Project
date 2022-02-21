@@ -5,12 +5,13 @@
 <h2>Genre: {{gameDetail.genre}}</h2>
 
 {{#if gameDetail.game_url}}
-<h3><a href="{{gameDetail.game_url}}">Click to play for free</a></h3>
+<h3><a href="{{gameDetail.game_url}} ">Click to play for free</a></h3>
 {{/if}}
 
+<p>{{gameDetail.description}}</p> 
 
 {{#each gameDetail.screenshots}}
-   <img src="{{this.image}}" alt="Screenshots"> 
+   <img src="{{this.image}}" width="350" alt="Screenshots"> 
 {{/each }}
 
-<p>{{gameDetail.description}}</p> 
+<a href="/games/{{gameDetail.id}}/details/create-review">Make your Review!</a>
