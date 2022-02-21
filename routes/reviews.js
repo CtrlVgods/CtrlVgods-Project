@@ -27,4 +27,6 @@ router.route("/detail")
     })
 });
 
+
+
 module.exports = router;
