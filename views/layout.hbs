@@ -2,9 +2,68 @@
 <html>
   <head>
     <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/public/stylesheets/style.css' />
   </head>
   <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://www.ctrlvgods.com">
+          <img
+            src="http://www.userlogos.org/files/logos/macleod.mac/atari_u.png"
+            height="80"
+          />
+        </a>
+      </div>
+
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="/" src="https://pngset.com/images/home-button-no-background-symbol-logo-trademark-sign-transparent-png-641820.png">
+            Home
+          </a>
+
+          <div class="search-container">
+            <form action="/game">
+              <input type="text" placeholder="Search Game" name="search">
+              <button type="submit"><i class="search"></i></button>
+            </form>
+          </div>
+
+          <a class="navbar-item" href="/reviews">
+            Reviews List
+          </a>           
+
+          <a class="navbar-item" href="/user/profile">
+            Profile
+          </a>                    
+          
+        </div>
+
+        <div>
+              <a class="signup" href="/auth/signup">
+                <strong>Sign up</strong>
+              </a>
+              <a class="login" href="/auth/login">
+                Log in
+              </a>
+              {{#if user.username}}
+                <a class="button is-dark" href="/">
+                  Log out
+                </a>
+              {{/if}}
+        </div>
+      </div>
+    </nav>
+
     {{{body}}}
+
+        <footer class="footer">
+      <div>
+        <p>
+          <strong>Thank you for visiting CrtlVgods: </strong>          
+          <a href="https://www.ctrlvgods.com"></a>
+        </p>
+      </div>
+    </footer>
+    
   </body>
 </html>
