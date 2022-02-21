@@ -7,7 +7,8 @@ var express = require("express");
 const indexRoutes= require("./routes/index.routes");
 const authRoutes = require("./routes/auth.routes");
 const gamesRoutes = require("./routes/games.routes");
-const userRoutes = require("./routes/user.routes")
+const userRoutes = require("./routes/user.routes");
+const reviewRoutes = require("./routes/review");
 
 var app = express();
 
@@ -20,7 +21,8 @@ require("./config/global")(app);
 app.use('/', indexRoutes);
 app.use("/auth", authRoutes);
 app.use("/games", gamesRoutes);
-app.use("/user", userRoutes)
+app.use("/user", userRoutes);
+app.use("/review", reviewRoutes);
 
 
 
