@@ -1,5 +1,6 @@
 var express = require('express');
 const User = require('../models/User.model');
+const isLoggedIn = require("../middleware/isLoggedIn")
 var router = express.Router();
 
 /* GET users listing. */
