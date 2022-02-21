@@ -1,0 +1,14 @@
+
+
+<h1>{{gameDetail.title}}</h1> 
+
+<h2>Genre: {{gameDetail.genre}}</h2>
+<h3><a href="{{gameDetail.game_url}}">Click to play for free</a></h3>
+
+
+
+{{#each gameDetail.screenshots}}
+   <img src="{{this.image}}" alt="Screenshots"> 
+{{/each }}
+
+<p>{{gameDetail.description}}</p> 

@@ -2,9 +2,13 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const Game = require("../models/Game.model")
+
 const isLoggedIn = require("../middleware/isLoggedIn")
 const GamesApi = require("../services/gamesApi")
 const gamesApiHandler = new GamesApi()
+
+
+
 router.get("/", (req, res)=> {
   gamesApiHandler
     .getAllGames()
@@ -15,4 +19,19 @@ router.get("/", (req, res)=> {
     })
     .catch((err)=>{console.log(err)})
 })
+
+router.get("/:gameId/details", (req, res)=> {
+  const id = req.params.gameId
+  
+  gamesApiHandler
+  .getOneGame(id)
+  .then((game)=>{
+    console.log(game.data)
+    res.render("games/oneGame", {gameDetail: game.data})
+  })
+  
+  
+})
+
+
 module.exports = router;

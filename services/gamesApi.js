@@ -11,9 +11,9 @@ class GamesApi {
       this.api = axios.create({ baseURL: this.baseURL }); // Typocal connection string requires keys etc... `${this.baseURL}/?key=${API_KEY}`
     }
     getAllGames = () => this.api.get("/games"); //Name should be descriptive of your service
-    getOneCharacter = (id) => {
-       return this.api.get(`/characters/${id}`)
-    };
+    getOneGame = (gameId) => this.api.get(`/game?id=game${gameId}`)
+       
+    
     createOneCharacter = () => {};
     updateOneCharacter = () => {};
     deleteOneCharacter = () => {};
