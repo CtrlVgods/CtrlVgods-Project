@@ -4,7 +4,7 @@ require("../config/db.js");
 const Game = require('../models/Game.model');
 
 const games = require("./games.json")
-//console.log("games length >>>>>>>>>>>>",games.length)
 
-Game.deleteMany().then(()=>games.forEach((game)=> Game.create({id: game.id, title: game.title}))
+
+Game.deleteMany().then(()=>games.forEach((game)=> Game.create({id: game.id, title: game.title, thumbnail: game.thumbnail}))
 )

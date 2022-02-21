@@ -10,9 +10,9 @@ class GamesApi {
       this.baseURL = baseURL; // || " dafalut user";
       this.api = axios.create({ baseURL: this.baseURL }); // Typocal connection string requires keys etc... `${this.baseURL}/?key=${API_KEY}`
     }
-    getAllGames = () => this.api.get("/games"); //Name should be descriptive of your service
-    getOneGame = (gameId) => this.api.get(`/game?id=game${gameId}`)
-       
+    getAllGames = () => this.api.get("/games").then(response=>response.data)
+    getOneGame = (gameId) => this.api.get(`/game?id=game${gameId}`).then(response=>response.data)
+    
     
     createOneCharacter = () => {};
     updateOneCharacter = () => {};
