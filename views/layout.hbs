@@ -17,48 +17,49 @@
         </a>
       </div>
 
-      <div class="navbar-menu">
-        <div class="navbar-start">
-          <a class="navbar-item" href="/" src="https://pngset.com/images/home-button-no-background-symbol-logo-trademark-sign-transparent-png-641820.png">
-            Home
-          </a>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
 
-          <div class="search-container">
-            <form action="/game">
-              <input type="text" placeholder="Search Game" name="search">
-              <button type="submit"><i class="search"></i></button>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active navbar-brand" aria-current="page" href="/">Home</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/games">All Games</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/reviews">Reviews List</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/auth/signup">Sign up</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/auth/login">Login</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/auth/logout">Logout</a>
+              </li>
+              
+              
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search Game" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
+
+            
           </div>
-
-          <a class="navbar-item" href="/games">
-            All Games
-          </a>           
-
-          <a class="navbar-item" href="/reviews">
-            Reviews List
-          </a>           
-
-          <a class="navbar-item" href="/user/profile">
-            Profile
-          </a>                    
-          
         </div>
-
-        <div>
-              <a class="signup" href="/auth/signup">
-                <strong>Sign up</strong>
-              </a>
-              <a class="login" href="/auth/login">
-                Log in
-              </a>
-              {{#if user.username}}
-                <a class="button is-dark" href="/">
-                  Log out
-                </a>
-              {{/if}}
-        </div>
-      </div>
-    </nav>
+      </nav>
 
     {{{body}}}
 
