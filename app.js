@@ -9,6 +9,7 @@ const authRoutes = require("./routes/auth.routes");
 const gamesRoutes = require("./routes/games.routes");
 const userRoutes = require("./routes/user.routes");
 const reviewRoutes = require("./routes/reviews");
+const searchRoutes = require("./routes/searchBar.routes")
 
 var app = express();
 
@@ -23,6 +24,7 @@ app.use("/auth", authRoutes);
 app.use("/games", gamesRoutes);
 app.use("/user", userRoutes);
 app.use("/reviews", reviewRoutes);
+app.use("/search", searchRoutes)
 
 
 
