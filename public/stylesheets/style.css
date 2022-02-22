@@ -16,3 +16,17 @@ a {
 	align-content: stretch;
 	margin-top: 30px;
 }
+
+.layout-body{
+	background-color: azure;
+
+}
+
+.center-screenshot {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: center;
+}
