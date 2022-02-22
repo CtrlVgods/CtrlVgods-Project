@@ -24,7 +24,7 @@ const User = require("../models/User.model");
 //   res.render("index", { reviews });
 // });
 
-
+// comment
 // router.get("/", (req, res)=>{
 //   Review.find().populate("game").populate("author")
 //     .then((reviews)=>{
