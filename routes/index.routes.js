@@ -10,18 +10,27 @@ const Review = require("../models/Review.model");
 const User = require("../models/User.model");
 
 /* GET home page. */
-router.get("/", async (req, res) => {
+// router.get("/", async (req, res) => {
 
-  gamesApiHandler
-  .getOneGame(466)
-    .then((game) => {
-     
-      res.render("index", game);
-        })
-        
+//   gamesApiHandler
+//   .getOneGame(466)
+//     .then((game) => {
+//       res.render("index", game);
+//       })
+// });
+
+// router.get("/", async (req, res) => {
+//   const reviews = await Review.find().populate("author").populate("game");
+//   res.render("index", { reviews });
+// });
+
+
+router.get("/", (req, res)=>{
+  Review.find().populate("game").populate("author")
+    .then((reviews)=>{
+      console.log(reviews)
+      res.render("index", {reviews})
     })
-
-/* GET from API */
-
+})
 
 module.exports = router;

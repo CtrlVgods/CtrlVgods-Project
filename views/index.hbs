@@ -1,18 +1,16 @@
+<div>
+{{#each reviews}}
 
-<div class="container">
-    <div>
-        <button type="submit"><a href="/games">ALL GAMES</a></button>
+    <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="{{game.thumbnail}}" alt="Card image cap" />
+    <div class="card-body">
+      <h5 class="card-title">{{title}} <br> by {{author.username}}</h5>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
-    <div>
-        <button type="submit"><a href="#">MVP</a></button>
     </div>
-    <div>
-        <button type="submit"><a href="/reviews">REVIEWS</a></button>
-    </div>
+
+{{/each}}
 </div>
-
-
-
 
 
 
