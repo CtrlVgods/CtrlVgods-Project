@@ -1,5 +1,5 @@
 <h1>All Available Games </h1>
-{{#each gameList}}
+{{#each resultGameList}}
     <div>
         <h3>{{title}}</h3>
         <p>{{short_description}}</p>
@@ -8,3 +8,34 @@
         
     </div>
 {{/each}}
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="disabled">
+      <a class="page-link" href="games?page={{previousPage}}&limit=10" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li class="active"><a class="page-link" href="games?page=1&limit=10">1</a></li>
+    <li class="page-item"><a class="page-link" href="games?page=2&limit=10">2</a></li>
+    <li class="page-item"><a class="page-link" href="games?page=3&limit=10">3</a></li>
+    <li class="page-item"><a class="page-link" href="games?page=4&limit=10">4</a></li>
+    <li class="page-item"><a class="page-link" href="games?page=5&limit=10">5</a></li>
+    <li class="page-item"><a class="page-link" href="games?page=6&limit=10">6</a></li>
+    <li class="active"><a class="page-link" href="games?page=7&limit=10">7</a></li>
+    <li class="page-item"><a class="page-link" href="games?page=8&limit=10">8</a></li>
+    <li class="page-item"><a class="page-link" href="games?page=9&limit=10">9</a></li>
+    <li class="page-item"><a class="page-link" href="games?page=10&limit=10">10</a></li>
+    <li class="page-item"><a class="page-link" href="games?page=11&limit=10">11</a></li>
+    <li class="page-item"><a class="page-link" href="games?page=12&limit=10">12</a></li>
+    <li class="active"><a class="page-link" href="games?page=13&limit=10">13</a></li>
+    <li class="page-item"><a class="page-link" href="games?page=14&limit=10">14</a></li>
+    <li class="page-item"><a class="page-link" href="games?page=15&limit=10">15</a></li>
+ 
+    <li class="page-item">
+      <a class="page-link" href="games?page={{nextPage}}&limit=10" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>

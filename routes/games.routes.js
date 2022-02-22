@@ -56,7 +56,35 @@ router.get("/:gameId/details", (req, res) => {
   });
 });
 
+// PAGINATION
+
 router.get("/", (req, res) => {
+  const page = req.query.page
+  const previousPage = page - 1
+  const nextPage = page + 1
+  const limit = req.query.limit
+  
+  const startIndex = (page -1) * limit;
+  const endIndex = page * limit
+
+  
+    Game.find()
+    .then((games) => {
+      
+      const resultGameList = games.slice(startIndex,endIndex)
+      
+      res.render("games/gameList", {resultGameList, previousPage, nextPage} );
+      console.log(previousPage)
+      
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+/*router.get("/", (req, res) => {
+
+
   gamesApiHandler
     .getAllGames()
     .then((games) => {
@@ -67,6 +95,11 @@ router.get("/", (req, res) => {
     .catch((err) => {
       console.log(err);
     });
-});
+});*/
+
+
+
+
+
 
 module.exports = router;
