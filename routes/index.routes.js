@@ -24,7 +24,7 @@ const User = require("../models/User.model");
 //   res.render("index", { reviews });
 // });
 
-
+// comment
 // router.get("/", (req, res)=>{
 //   Review.find().populate("game").populate("author")
 //     .then((reviews)=>{
@@ -34,7 +34,7 @@ const User = require("../models/User.model");
 // })
 
 router.get("/", async (req, res)=>{
-   const reviewResult = await Review.find().populate("author").populate("game").limit(3)
+   const reviewResult = await Review.find().populate("author").populate("game").limit(6)
        console.log("test: ", reviewResult[0].game.thumbnail)
        res.render("index", {reviewResult})
 })
