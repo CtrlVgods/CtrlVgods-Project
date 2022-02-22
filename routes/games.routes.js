@@ -49,11 +49,18 @@ router
   });
 
 router.get("/:gameId/details", (req, res) => {
-  const id = req.params.gameId;
+  const apiId = req.params.gameId;
 
-  gamesApiHandler.getOneGame(id).then((game) => {
-    res.render("games/oneGame", { gameDetail: game });
-  });
+  Game.findOne({id: apiId})
+  .populate("reviews")
+  .then((dbGame) => {
+  gamesApiHandler
+    .getOneGame(apiId)
+    .then((game) => {
+      console.log(game)
+      res.render("games/oneGame", { gameDetail: game, dbGame });
+    });
+  })
 });
 
 // PAGINATION

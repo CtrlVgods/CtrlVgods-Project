@@ -1,7 +1,4 @@
-.{
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+
 
 
 a {
@@ -11,6 +8,7 @@ a {
 .marginTop {
 	margin-top:40px;
 }
+
 .rowReview {
 	display: flex;
 	flex-direction: row;
