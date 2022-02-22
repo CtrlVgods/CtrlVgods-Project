@@ -1,8 +1,16 @@
+<div>
+{{#each reviews}}
 
-<h1> <a href="/games"> All Games</h1></a>
-<a href="/games"><img src="{{thumbnail}}" alt="Game Image"></a>
+    <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="{{game.thumbnail}}" alt="Card image cap" />
+    <div class="card-body">
+      <h5 class="card-title">{{title}} <br> by {{author.username}}</h5>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+    </div>
 
-<h1>MVP</h1>
+{{/each}}
+</div>
 
 
 
