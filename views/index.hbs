@@ -1,7 +1,8 @@
-<div class = "row">
-{{#each reviews}}
+<h1 class="indxReviews">Check our latest potato salad</h1>
+<div class = "rowReview" style="padding-bottom: 50px; margin-top: 20px;">
+{{#each reviewResult}}
 
-<div class="card" style="width: 18rem;">
+<div class="card" style="width: 45%; margin-bottom: 75px;">
         <img class="card-img-top" src="{{game.thumbnail}}" alt="Card image cap" />
     <div class="card-body">
       <h5 class="card-title">{{title}} <br> by {{author.username}}</h5>
@@ -11,5 +12,3 @@
 
 {{/each}}
 </div>
-
-
