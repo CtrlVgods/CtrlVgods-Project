@@ -35,7 +35,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="/reviews">Reviews List</a>
               </li>
-
+  {{#unless username}}
               <li class="nav-item">
                 <a class="nav-link" href="/auth/signup">Sign up</a>
               </li>
@@ -43,7 +43,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="/auth/login">Login</a>
               </li>
+              {{/unless}}
 
+  {{#if username}}
               <li class="nav-item">
                 <a class="nav-link" href="/auth/logout">Logout</a>
               </li>
@@ -52,7 +54,7 @@
                 <a class="nav-link" href="/user/profile">Profile</a>
               </li>
               
-              
+              {{/if}}
             </ul>
             <form action = "/search/gameName" method = "POST"class="d-flex">
               <input name ="gameName" class="form-control me-2" type="search" placeholder="Search Game" aria-label="Search">
@@ -66,7 +68,7 @@
 
     {{{body}}}
 
-        <footer class="container-fluid text-center" >
+        <footer class="container-fluid text-center" style="padding:0">
 
   <nav class="navbar navbar-dark bg-secondary">
     <div class="container-fluid">
