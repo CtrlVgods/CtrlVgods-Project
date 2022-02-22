@@ -15,3 +15,17 @@ a {
 	align-items: center;
 	align-content: stretch;
 }
+
+.layout-body{
+	background-color: azure;
+
+}
+
+.center-screenshot {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: center;
+}
