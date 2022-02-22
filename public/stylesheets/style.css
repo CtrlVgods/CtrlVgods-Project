@@ -1,7 +1,8 @@
-body {
+.{
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+
 
 a {
   color: #00B7FF;
@@ -31,7 +32,7 @@ a {
 	align-content: center;
 }
 
-
+ 
 #footer {
 	position:absolute;
 	bottom:0;
@@ -39,5 +40,3 @@ a {
 	height:60px;   
 	background:#6cf;
   }
-
-  
