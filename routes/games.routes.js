@@ -63,7 +63,7 @@ router.get("/", (req, res) => {
   var integer = parseInt(page)
   const nextPage = integer + 1
   const previousPage = integer - 1
-  const limit = req.query.limit
+  const limit = 16
   
   const startIndex = (page -1) * limit;
   const endIndex = page * limit
@@ -75,28 +75,14 @@ router.get("/", (req, res) => {
       const resultGameList = games.slice(startIndex,endIndex)
       
       res.render("games/gameList", {resultGameList, previousPage, nextPage} );
-      console.log(nextPage)
       
+      console.log(resultGameList[0])
     })
     .catch((err) => {
       console.log(err);
     });
 });
 
-/*router.get("/", (req, res) => {
-
-
-  gamesApiHandler
-    .getAllGames()
-    .then((games) => {
-      let gameList = { gameList: games };
-
-      res.render("games/gameList", { gameList: games });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});*/
 
 
 
