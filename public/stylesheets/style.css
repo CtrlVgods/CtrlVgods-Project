@@ -41,6 +41,16 @@ a {
 	background:#6cf;
   }
 
-  .indexReviews {
+.indexReviews {
 	  text-align: center;
-  }
+}
+
+.landing {
+	display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-around;
+	padding-bottom: 10px;
+}
