@@ -1,5 +1,5 @@
-<h1 class="indxReviews">Check our latest potato salad</h1>
-<div class = "rowReview" style="padding-bottom: 50px; margin-top: 20px;">
+<h1 class="indexReviews">Check our latest reviews!</h1>
+{{!-- <div class="landingReviews">
 {{#each reviewResult}}
 
 <div class="card" style="width: 45%; margin-bottom: 75px;">
@@ -11,4 +11,23 @@
 </div>
 
 {{/each}}
-</div>
+</div> --}}
+<div class="landing">
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="width: 60%; box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);">
+    <div class="carousel-inner">
+      {{#each reviewResult}}
+      <div class="carousel-item {{#unless @index}} active {{/unless}}">
+        <img src="{{game.thumbnail}}" class="d-block w-100" alt="...">
+      </div>
+      {{/each }}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  </div>
