@@ -1,9 +1,10 @@
 
 <div class = "rowReview">
 
-{{#each reviews}}
+{{#if isAuthor}}
 
-    <div class="card" style="width: 18rem;">
+{{#each user.reviews}}
+ <div class="card" style="width: 18rem;">
     <img class="card-img-top" src="{{game.thumbnail}}" alt="Card image cap" />
     <div class="card-body">
       <h5 class="card-title">{{title}}</h5>
@@ -13,5 +14,26 @@
     </div>
 
 {{/each}}
+
+{{/if}}
+
+
+
+
+{{#if isNotAuthor}}
+
+{{#each allReviews}}
+ <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="{{game.thumbnail}}" alt="Card image cap" />
+    <div class="card-body">
+      <h5 class="card-title">{{title}}</h5>
+      <p class="card-text">{{description}}</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+    </div>
+
+{{/each}}
+{{/if}}
+
 
 </div>

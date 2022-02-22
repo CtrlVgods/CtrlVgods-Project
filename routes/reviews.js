@@ -12,8 +12,9 @@ const isLoggedOut = require("../middleware/isNotLoggedIn");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
 router.get("/", async (req, res) => {
-  const reviews = await Review.find().populate("author").populate("game");
-  res.render("reviews/reviewsList", { reviews });
+  var isNotAuthor = true
+  const allReviews = await Review.find().populate("author").populate("game");
+  res.render("reviews/reviewsList", { allReviews, isNotAuthor });
 });
 
 
@@ -35,7 +36,7 @@ router.route('/:id/user-list', isLoggedIn,)
     .then((user)=>{
         console.log(user.reviews)
                  
-            res.render("../views/reviews/reviewsList", user)
+            res.render("../views/reviews/reviewsList", {user, isAuthor})
 
       
     })
