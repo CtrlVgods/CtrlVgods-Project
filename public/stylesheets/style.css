@@ -7,6 +7,9 @@ a {
   color: #00B7FF;
 }
 
+.marginTop {
+	margin-top:40px;
+}
 .rowReview {
 	display: flex;
 	flex-direction: row;
