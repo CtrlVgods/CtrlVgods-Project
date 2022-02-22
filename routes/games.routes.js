@@ -3,6 +3,8 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const Game = require("../models/Game.model");
 
+const fileUploader =  require("../config/cloudinary.js")
+
 const isLoggedIn = require("../middleware/isLoggedIn");
 const GamesApi = require("../services/gamesApi");
 const gamesApiHandler = new GamesApi();
@@ -13,20 +15,25 @@ router
   .route("/:gameId/details/create-review")
   .get(isLoggedIn, (req, res, next) => {
     const id = req.params.gameId;
+    
     gamesApiHandler.getOneGame(id).then((game) => {
       let gameDetail = { gameFromDB: game };
 
       res.render("reviews/create-review", { gameDetail: game });
     });
   })
-  .post(isLoggedIn, (req, res, next) => {
+  .post(isLoggedIn,  fileUploader.single("imageUrl"), (req, res, next) => {
     const apiId = req.params.gameId;
     const authorId = req.session.currentUser;
-    const { title, description } = req.body;
+    const imageUrl = req.file && req.file.path
+    
+
+    
+    const { title, description, videoUrl } = req.body;
 
     Game.findOne({ id: apiId }).then((game) => {
       console.log();
-      Review.create({ title, author: authorId, description, game: game._id })
+      Review.create({ title, imageUrl, videoUrl, author: authorId, description, game: game._id })
         .then((review) => {
           User.findOneAndUpdate(
             { _id: authorId },
