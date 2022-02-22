@@ -58,15 +58,17 @@
 {{/if}}
 
 
-
-
 <h1 class="text-center">Reviews</h1>
   {{#each dbGame.reviews}}
 <section>
     <div class="container">
         <div class="row">
             <div class="col-sm-5 col-md-6 col-12 pb-4">
+              
                 <div class="comment mt-4 text-justify float-left"> <img src="{{author.profilePic}}" alt="" class="rounded-circle" width="40" height="40">
+                  <h3>{{author.username}}</h3>
+                </div>
+
                     <h4>{{title}}</h4> <span>{{createdAt}}</span> <br>
                     <p>{{description}}</p>
                     <img src="{{imageUrl}}" alt="">
