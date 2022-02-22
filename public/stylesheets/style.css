@@ -1,13 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Comfortaa:wght@700&display=swap');
-
-* {
-	font-family: 'Cairo', sans-serif;
-}
-
-body {
+.{
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+
 
 a {
   color: #00B7FF;
@@ -37,15 +32,19 @@ a {
 	align-content: center;
 }
 
-
+ 
 #footer {
 	position:absolute;
 	bottom:0;
 	width:100%;
 	height:60px;   
 	background:#6cf;
+<<<<<<< HEAD
+  }
+=======
   }
 
 
  
   
+>>>>>>> 8f233364c8abd0761f13e7401b5e4a52b37ad569
