@@ -1,4 +1,4 @@
-<form action = "/games/{{gameDetail.id}}/details/create-review" method = "POST">
+<form action = "/games/{{gameDetail.id}}/details/create-review" method = "POST" enctype="multipart/form-data">
 <h1>{{gameDetail.id}}</h1>
 
 <h1>{{gameDetail.title}}</h1> 
@@ -9,10 +9,23 @@
 <h3>Create a New Review</h3>
 
     <label for="title">Title of the Review: </label>
-    <input type="text" name="title"/>
+    <input type="text" name="title" maxlength="24">
     
     <label for="description" >Description: </label> 
     <textarea name = "description"> Write the review here...</textarea>
+
+    
+ <label>URL of your video
+<input type="text" name="videoUrl" >
+ </label>
+    
+ <label>URL of your image
+<input type="file" name="imageUrl">
+ </label>
   
 <button type="submit">Submit Review</button>
 </form>
+
+
+
+
