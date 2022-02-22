@@ -35,7 +35,7 @@ const User = require("../models/User.model");
 
 router.get("/", async (req, res)=>{
    const reviewResult = await Review.find().populate("author").populate("game").limit(6)
-       console.log("test: ", reviewResult[0].game.thumbnail)
+       console.log("test: ", reviewResult)
        res.render("index", {reviewResult})
 })
 
