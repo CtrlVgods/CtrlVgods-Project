@@ -16,4 +16,29 @@ router.get("/", async (req, res) => {
   res.render("reviews/reviewsList", { reviews });
 });
 
+
+
+router.route('/:id/user-list', isLoggedIn,) 
+.get((req, res)=> {
+    const userId = req.session.currentUser
+    const routeId = req.params.id
+    if(userId._id === routeId){
+      var isAuthor = true
+    }else { var isAuthor = false}
+    User.findById(userId)
+    .populate({
+      path : 'reviews',
+      populate : {
+        path : 'game'
+      }
+    })  
+    .then((user)=>{
+        console.log(user.reviews)
+                 
+            res.render("../views/reviews/reviewsList", user)
+
+      
+    })
+})
+   
 module.exports = router;
