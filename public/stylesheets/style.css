@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Comfortaa:wght@700&display=swap');
+
+* {
+	font-family: 'Cairo', sans-serif;
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -9,10 +15,10 @@ a {
 
 .rowReview {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	flex-wrap: nowrap;
 	justify-content: space-around;
-	align-items: flex-end;
+	align-items: center;
 	align-content: center;
 	
 }
@@ -40,4 +46,8 @@ a {
 	background:#6cf;
   }
 
-  
+.indxReviews {
+	text-align: center;
+	padding-top: 10px;
+	font-weight: 700;
+}  

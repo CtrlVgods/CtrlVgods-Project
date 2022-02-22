@@ -13,7 +13,7 @@ router.get("/", (req, res)=>{
   Review.find().populate("game").populate("author").limit(3)
     .then((reviews)=>{
       console.log(reviews)
-      res.render("index", {reviews})
+      res.render("index", reviews)
     })
 })
 
