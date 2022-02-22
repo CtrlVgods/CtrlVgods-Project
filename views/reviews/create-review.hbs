@@ -1,11 +1,16 @@
+<form action = "/games/{{gameDetail.id}}/details/create-review" method = "POST">
+<h1>{{gameDetail.id}}</h1>
+
 <h1>{{gameDetail.title}}</h1> 
-<img src="{{gameDetail.image[0]}}" alt="">
-<p>{{gameDetail.description}}</p> 
+
+
+<p>{{gameDetail.short_description}}</p> 
 
 <h3>Create a New Review</h3>
 
-<form action = "/games/{{this.id}}/details/create-review" method = "POST">
-
+    <label for="title">Title of the Review: </label>
+    <input type="text" name="title"/>
+    
     <label for="description" >Description: </label> 
     <textarea name = "description"> Write the review here...</textarea>
   
