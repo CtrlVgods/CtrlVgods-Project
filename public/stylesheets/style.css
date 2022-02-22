@@ -11,10 +11,10 @@ a {
 
 .rowReview {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: space-around;
-	align-items: center;
+	align-items: flex-end;
 	align-content: center;
 	
 }
