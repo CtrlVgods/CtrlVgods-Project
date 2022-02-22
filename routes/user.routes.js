@@ -2,6 +2,7 @@ var express = require('express');
 const User = require('../models/User.model');
 const isLoggedIn = require("../middleware/isLoggedIn")
 var router = express.Router();
+const fileUploader =  require("../config/cloudinary.js")
 
 /* GET users listing. */
 
@@ -19,6 +20,16 @@ router.route('/profile/:id/edit', isLoggedIn,)
         } else {res.redirect("/auth/login")}
     })
 })
+.post( fileUploader.single("profilePic"),(req,res)=>{
+    const id = req.session.currentUser._id
+    const username = req.body.username
+    const profilePic = req.file.path
+    console.log("pic/////////////////////////////", profilePic)
+    User.findByIdAndUpdate(id, {profilePic, username},{new: true})
+    .then((user)=>{
+      res.redirect("/user/profile")
+    })
+    })
 
 
 
