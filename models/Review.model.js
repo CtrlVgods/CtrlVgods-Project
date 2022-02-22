@@ -9,6 +9,9 @@ const reviewSchema = new Schema({
     videoUrl: String,
 	likes: [String],
 	comments: [{ type: Schema.Types.ObjectId, ref: 'Comment', default: [] }]
+},
+{
+  timestamps: true
 });
 
 const Review = model('Review', reviewSchema);

@@ -1,10 +1,10 @@
-<form action="/reviews/{{this._id}}/edit" method="POST">
+<form action="/reviews/{{this._id}}/edit" method="POST" enctype="multipart/form-data">
 
 <h1>Edit your review</h1>
 <h3>Game: {{game.title}}</h3>
 
 <label>Title
-<input type="text" name="title" value="{{title}}">
+<input type="text" name="title" value="{{title}}" maxlength="24">
  </label>
 
  <label>Description
@@ -12,7 +12,7 @@
  </label>
 
  <label>URL of your image
-<input type="text" name="imageUrl">
+<input type="file" name="imageUrl">
  </label>
 
  <label>URL of your video
@@ -22,5 +22,5 @@
  <br>
  <br>
  <br>
- <a href="/reviews/{{this._id}}/delete"><button>DELETE REVIEW</button></a>
 </form>
+ <a href="/reviews/{{this._id}}/delete"><button>DELETE REVIEW</button></a>
