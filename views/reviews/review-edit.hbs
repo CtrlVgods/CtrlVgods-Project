@@ -1,0 +1,26 @@
+<form action="/reviews/{{this._id}}/edit" method="POST">
+
+<h1>Edit your review</h1>
+<h3>Game: {{game.title}}</h3>
+
+<label>Title
+<input type="text" name="title" value="{{title}}">
+ </label>
+
+ <label>Description
+ <textarea name="description"  cols="30" rows="10">{{description}}</textarea>
+ </label>
+
+ <label>URL of your image
+<input type="text" name="imageUrl">
+ </label>
+
+ <label>URL of your video
+<input type="text" name="videoUrl" >
+ </label>
+ <button type="submit"> UPDATE REVIEW</button>
+ <br>
+ <br>
+ <br>
+ <a href="/reviews/{{this._id}}/delete"><button>DELETE REVIEW</button></a>
+</form>
