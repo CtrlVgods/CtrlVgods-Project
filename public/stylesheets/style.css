@@ -7,7 +7,7 @@ a {
   color: #00B7FF;
 }
 
-.row {
+.rowReview {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
