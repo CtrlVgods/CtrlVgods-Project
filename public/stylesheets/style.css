@@ -14,13 +14,14 @@ a {
 }
 
 .rowReview {
-	display: flex;
+
+    display: flex;
+
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: space-around;
 	align-items: flex-end;
 	align-content: center;
-	
 }
 
 .layout-body{
@@ -45,3 +46,17 @@ a {
 	height:60px;   
 	background:#6cf;
   }
+
+.indexReviews {
+	  text-align: center;
+}
+
+.landing {
+	display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-around;
+	padding-bottom: 10px;
+}
