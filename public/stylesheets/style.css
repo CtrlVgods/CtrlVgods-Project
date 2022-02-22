@@ -7,11 +7,12 @@ a {
   color: #00B7FF;
 }
 
-.row {
+.rowReview {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap-reverse;
 	justify-content: space-evenly;
 	align-items: center;
 	align-content: stretch;
+	margin-top: 30px;
 }
