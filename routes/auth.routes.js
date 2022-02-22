@@ -73,16 +73,6 @@ router.get("/logout", (req, res) => {
     }
   });
 });
-/*router.get("/logout", isLoggedIn, (req, res) => {
-  req.session.destroy((err) => {
-    if (err) {
-      return res
-        .status(500)
-        .render("auth/logout", { errorMessage: err.message });
-    }
-    res.redirect("/");
-  });
-}); */
 
 router.get("/signup", isLoggedOut, (req, res) => {
     res.render("auth/signup");
