@@ -59,7 +59,12 @@ router.get("/:gameId/details", (req, res) => {
   const apiId = req.params.gameId;
 
   Game.findOne({id: apiId})
-  .populate("reviews")
+   .populate({
+    path : 'reviews',
+    populate : {
+      path : 'author'
+    }})
+  
   .then((dbGame) => {
   gamesApiHandler
     .getOneGame(apiId)
