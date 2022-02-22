@@ -60,8 +60,9 @@ router.get("/:gameId/details", (req, res) => {
 
 router.get("/", (req, res) => {
   const page = req.query.page
-  const previousPage = page - 1
-  const nextPage = page + 1
+  var integer = parseInt(page)
+  const nextPage = integer + 1
+  const previousPage = integer - 1
   const limit = req.query.limit
   
   const startIndex = (page -1) * limit;
@@ -74,7 +75,7 @@ router.get("/", (req, res) => {
       const resultGameList = games.slice(startIndex,endIndex)
       
       res.render("games/gameList", {resultGameList, previousPage, nextPage} );
-      console.log(previousPage)
+      console.log(nextPage)
       
     })
     .catch((err) => {
