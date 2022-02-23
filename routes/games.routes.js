@@ -89,7 +89,7 @@ router.get("/", (req, res) => {
   const startIndex = (page -1) * limit;
   const endIndex = page * limit
 
-  console.log("pages: ", page)
+  
     Game.find()
     .then((games) => {
       
@@ -97,7 +97,7 @@ router.get("/", (req, res) => {
       
       res.render("games/gameList", {resultGameList, previousPage, nextPage} );
       
-      console.log(resultGameList[0])
+    
     })
     .catch((err) => {
       console.log(err);
