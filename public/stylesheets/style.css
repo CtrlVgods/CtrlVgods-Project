@@ -2,15 +2,23 @@
 
 * {
 	font-family: 'Cairo', sans-serif;
+	
 }
 
 
-a {
-  color: #00B7FF;
+
+body {
+	min-height: 100%;
+	font-size: 1rem;
+	background-image: url(https://wallpapercave.com/wp/wp2659694.jpg);
+	background-repeat: repeat;
+	background-size: cover;
 }
 
 .marginTop {
 	margin-top:40px;
+	height: 100vh;
+
 }
 
 .rowReview {
@@ -36,13 +44,11 @@ a {
 	position:absolute;
 	bottom:0;
 	width:100%;
-	height:60px;   
-	background:#6cf;
+	height:60px;
   }
 
 .indexReviews {
 	  text-align: center;
-	  color: white;
 	  font-size: 4rem;
 }
 
@@ -53,12 +59,7 @@ a {
     justify-content: space-around;
     align-items: center;
     align-content: space-around;
-}
 
-.layout-body {
-	background: linear-gradient(180deg, rgba(70,113,38,0.9307073171065301) 19%, rgba(94,130,37,1) 84%);
-	background: cover;
-	background-repeat: no-repeat;
 }
 
 .mvpUsers {
@@ -70,9 +71,12 @@ a {
 	align-content: center;
 }
 
-.container {margin:2em 0;}
+.navbar {
+	background: linear-gradient(90deg, rgba(159,159,159,1) 29%, rgba(96,96,96,1) 100%);
+	box-shadow: 1px 10px 18px -3px #000000;
+}
 
-body {font-size:1rem;} 
+.container {margin:2em 0;}
 
 @media screen and (min-width: 300px) {  
 	body {font-size:1.2rem;} 
