@@ -45,7 +45,7 @@ router
               { $push: { reviews: review } }, //PASAR SOLO REVIEW_ID
               { new: true }
             ).then(() => {
-              res.redirect("/reviews");
+              res.redirect("/reviews?page=1&limit=16");
             });
           });
         })
