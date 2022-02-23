@@ -15,8 +15,56 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 
 
 
+router.get('/:reviewId/details', isLoggedIn,(req, res)=> {
+  const reviewId = req.params.reviewId
+  let userLiked = false;
+  let userNotLiked = false;
+  Review.findById(reviewId)
+  .populate(["author","game","likes","comments"])
+  .then((review)=>{
+    User.findById(req.session.currentUser)
+    .then((user)=>{
+     if(review.likes.includes(user.username)){
+       userLiked = true
+     } else{ userNotLiked = true}
+
+      res.render("../views/reviews/oneReview", {review, userLiked, userNotLiked})
+    })
+  })
+})
+
+router.route('/:reviewId/likes', isLoggedIn,) 
+.get((req, res)=> {
+  const reviewId = req.params.reviewId
+  const userId = req.session.currentUser
+  User.findById(userId)
+  .then((user)=>{
+
+    Review.findOneAndUpdate(
+      {_id : reviewId},
+      { $push: { likes: user.username } },
+      { new: true })
+      .then(()=>{res.redirect(`/reviews/${reviewId}/details`)})
+  })
+})
+router.route('/:reviewId/notlikes', isLoggedIn,) 
+.get((req, res)=> {
+  const reviewId = req.params.reviewId
+  const userId = req.session.currentUser
+  User.findById(userId)
+  .then((user)=>{
+
+    Review.findOneAndUpdate(
+      {_id : reviewId},
+      { $pull: { likes: user.username } },
+      { new: true })
+      .then(()=>{res.redirect(`/reviews/${reviewId}/details`)})
+  })
+})
+
+
 router.get('/:reviewId/delete', isLoggedIn,(req, res)=> {
-  console.log("===============================================>>>> entro aca")      
+  //console.log("===============================================>>>> entro aca")      
   const userId = req.session.currentUser
   const reviewId = req.params.reviewId
   Review.findById(reviewId)
@@ -29,6 +77,26 @@ router.get('/:reviewId/delete', isLoggedIn,(req, res)=> {
       } else{ res.redirect("/auth/login")}
   })
 })
+ /*
+router.get('/:reviewId/delete', isLoggedIn,(req, res)=> {
+  const userId = req.session.currentUser._id
+  const reviewId = req.params.reviewId
+  Review.findById(reviewId)
+  .then((review)=>{
+    console.log("useID====>", userId, "review author ====>", review.author.toString(), userId === review.author.toString())  
+    if(userId === review.author.toString()){
+        User.findByIdAndUpdate(userId, {$pull:{reviews: reviewId}}, {new: true})
+        .then((user)=>{
+          console.log("user.reviews >>>>>>>>>>>>>>>>>", user.reviews)
+          res.redirect(`/reviews/${userId}/user-list`)}) // view palceholder text empy array
+         // console.log(review)
+      } else{ res.redirect("/auth/login")}
+  })
+})
+*/
+
+
+
 
   router.route('/:reviewId/edit', isLoggedIn,) 
 .get((req, res)=> {
