@@ -2,6 +2,7 @@
 
 * {
 	font-family: 'Cairo', sans-serif;
+	color: white;
 }
 
 
@@ -14,20 +15,12 @@ a {
 }
 
 .rowReview {
-
     display: flex;
-
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: space-around;
 	align-items: flex-end;
 	align-content: center;
-}
-
-.layout-body {
-    background: no-repeat;
-    background-size: auto;
-
 }
 
 .center-screenshot {
@@ -50,6 +43,8 @@ a {
 
 .indexReviews {
 	  text-align: center;
+	  color: white;
+	  font-size: 4rem;
 }
 
 .landing {
@@ -59,4 +54,19 @@ a {
     justify-content: space-around;
     align-items: center;
     align-content: space-around;
+}
+
+.layout-body {
+	background-image: url(https://wallpapercave.com/wp/wp2737387.jpg);
+	background-repeat: repeat;
+	background-size: cover;
+}
+
+.mvpUsers {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-evenly;
+	align-items: center;
+	align-content: center;
 }
