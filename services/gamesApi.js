@@ -13,9 +13,7 @@ class GamesApi {
     getAllGames = () => this.api.get("/games").then(response=>response.data)
     getOneGame = (gameId) => this.api.get(`/game?id=game${gameId}`).then(response=>response.data)
     
-    
-    createOneCharacter = () => {};
-    updateOneCharacter = () => {};
-    deleteOneCharacter = () => {};
   }
+
+  
 module.exports = GamesApi;
