@@ -1,17 +1,54 @@
-<h1 class="indexReviews">Check our latest reviews!</h1>
-{{!-- <div class="landingReviews">
-{{#each reviewResult}}
+<h1 class="indexReviews">Welcome to control-V-gods! Check our most popular games!</h1>
 
-<div class="card" style="width: 45%; margin-bottom: 75px;">
-        <img class="card-img-top" src="{{game.thumbnail}}" alt="Card image cap" />
-    <div class="card-body">
-      <h5 class="card-title">{{title}} <br> by {{author.username}}</h5>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+<div class ="marginTop">
+ <div class="container">
+  <div class="row">
+    <!-- Team Member 1 -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-0 shadow">
+      <a href="/games/{{popularGames.[0].id}}/details"><img src="{{popularGames.[0].thumbnail}}" class="card-img-top" alt="..."></a>
+        <div class="card-body text-center">
+          <h5 class="card-title mb-0">{{popularGames.[0].title}}</h5>
+        
+        </div>
+      </div>
     </div>
+    <!-- Team Member 2 -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-0 shadow">
+        <a href="/games/{{popularGames.[1].id}}/details"><img src="{{popularGames.[1].thumbnail}}" class="card-img-top" alt="..."></a>
+        <div class="card-body text-center">
+          <h5 class="card-title mb-0">{{popularGames.[1].title}}</h5>
+         
+        </div>
+      </div>
+    </div>
+    <!-- Team Member 3 -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-0 shadow">
+         <a href="/games/{{popularGames.[2].id}}/details"><img src="{{popularGames.[2].thumbnail}}" class="card-img-top" alt="..."></a>
+        <div class="card-body text-center">
+          <h5 class="card-title mb-0">{{popularGames.[2].title}}</h5>
+        
+        </div>
+      </div>
+    </div>
+    <!-- Team Member 4 -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-0 shadow">
+         <a href="/games/{{popularGames.[3].id}}/details"><img src="{{popularGames.[3].thumbnail}}" class="card-img-top" alt="..."></a>
+        <div class="card-body text-center">
+          <h5 class="card-title mb-0">{{popularGames.[3].title}}</h5>
+       
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-{{/each}}
-</div> --}}
+<h1 class="indexReviews">Check our latest reviews!</h1>
+
+<div class="landingBg">
 <div class="landing">
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="width: 60%; box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);">
     <div class="carousel-inner">
@@ -31,3 +68,20 @@
     </button>
   </div>
   </div>
+</div>
+
+<h1 class="indexReviews">Our most active reviewers:</h1>
+
+<div class="mvpUsers">
+<div class="comment mt-4 text-justify float-left"> <img src="{{popularUsers.[0].profilePic}}" alt="" class="rounded-circle" width="200" height="200">
+  <h3>{{popularUsers.[0].username}}</h3>
+</div>
+
+<div class="comment mt-4 text-justify float-left"> <img src="{{popularUsers.[1].profilePic}}" alt="" class="rounded-circle" width="200" height="200">
+  <h3>{{popularUsers.[1].username}}</h3>
+</div>
+
+<div class="comment mt-4 text-justify float-left"> <img src="{{popularUsers.[2].profilePic}}" alt="" class="rounded-circle" width="200" height="200">
+  <h3>{{popularUsers.[2].username}}</h3>
+</div>
+</div>

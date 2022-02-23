@@ -34,9 +34,11 @@ const User = require("../models/User.model");
 // })
 
 router.get("/", async (req, res)=>{
+   const popularUsers = await User.find().limit(3)
+   console.log(popularUsers)
+   const popularGames = await Game.find().limit(4)
    const reviewResult = await Review.find().populate("author").populate("game").limit(6)
-       console.log("test: ", reviewResult[0].game.thumbnail)
-       res.render("index", {reviewResult})
+       res.render("index", {reviewResult, popularGames, popularUsers})
 })
 
 module.exports = router;
