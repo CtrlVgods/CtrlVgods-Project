@@ -14,15 +14,16 @@ router.post("/gameName", (req, res)=>{
 
     const gameName = req.body.gameName
     
-    Game.findOne({title:gameName})
-        .then((game) => {
+   // Game.findOne({title:gameName})
+   Game.find({title:{$regex: gameName,$options:'i'}})
+        .then((resultGameList) => {
             
-            res.redirect(`/games/${game.id}/details`)
-        })
+          //  res.redirect(`/games/${games[0].id}/details`)
+            res.render(`../views/games/gameList.hbs`,{resultGameList})
+        }).catch((err)=>{res.render("/gameName", { errorMessage: "Game not in database" })})
 })
 
     
-
 
 
 
