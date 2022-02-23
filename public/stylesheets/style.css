@@ -24,8 +24,9 @@ a {
 	align-content: center;
 }
 
-.layout-body{
-	background-color: azure;
+.layout-body {
+    background: no-repeat;
+    background-size: auto;
 
 }
 
