@@ -28,7 +28,8 @@
 
     
   </div>
-    <div class="container text-start col">
+    <div class="container text-start col" >
+          <div class="col"> 
       <h1>{{gameDetail.title}}</h1>
       <h4>Genre:</h4>
       <p> {{gameDetail.genre}}</p>
@@ -39,6 +40,8 @@
       <h4>Release Date:</h4>
         <p>{{gameDetail.release_date}}</p>
       <h4>Minimum System Requirements:</h4>
+          </div>
+          <div class="col"> 
       <ul class="list-unstyled">
         <li>OS: {{gameDetail.minimum_system_requirements.os}}</li>
         <li>Processor: {{gameDetail.minimum_system_requirements.processor}}</li>
@@ -46,19 +49,33 @@
         <li>Graphics: {{gameDetail.minimum_system_requirements.graphics}}</li>
         <li>Storage: {{gameDetail.minimum_system_requirements.storage}}</li>
       </ul>
+         </div>
+
+
     </div>
   </div>
+  
 </div>
-<div class="container text-center">
-  <h3>Game description:</h3>
+
+<p class="container text-center">
+
+  <button class="btn btn-dark " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"  aria-expanded="false" aria-controls="collapseExample">
+    Game description:
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body" style="margin-left: 5%; margin-right: 5%; margin-bottom: 3%">
   <p>{{gameDetail.description}}</p><br>
+  </div>
 </div>
+
+
 {{#if gameDetail.game_url}}
-  <h3 class="text-center "><a class="btn btn-primary" href="{{gameDetail.game_url}} ">Click to play for free</a></h3><br>
+  <h3 class="text-center "><a class="btn btn-dark" href="{{gameDetail.game_url}} ">Click to play for free</a></h3><br>
 {{/if}}
 
 
-<h1 class="text-center">Reviews</h1>
+<h1 class="container ">Reviews</h1>
   {{#each dbGame.reviews}}
 <section>
     <div class="container">
@@ -70,8 +87,8 @@
                 </div>
 
                     <h4>{{title}}</h4> <span>{{createdAt}}</span> <br>
-                    <p>{{description}}</p>
-                    <img src="{{imageUrl}}" alt="">
+                    <p>{{description}}</p>                    
+                    <a href="{{imageUrl}}" target = "_blank"><img src="{{imageUrl}}" alt="" width="300"></a>
                   </div>
                
             </div>
@@ -85,9 +102,6 @@
    <br>
   <a  class="btn btn-primary " href="/games/{{gameDetail.id}}/details/create-review">Make your Review!</a>
 </div>
-
-
-
 
 
 
