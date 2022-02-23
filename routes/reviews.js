@@ -154,10 +154,28 @@ router.route('/:id/user-list', isLoggedIn,)
   })
 })
 
-router.get("/", async (req, res) => {
+router.get("/",  (req, res) => {
+  let page = req.query.page
+  page = parseInt(page)
+  if(page <=0) page=1;
+  if(page >= 23) page = 23
+  const nextPage = page + 1
+  const previousPage = page - 1 
+  const limit = 8
+
+  const startIndex = (page - 1) * limit;
+  const endIndex = page * limit
   var isNotAuthor = true
-  const allReviews = await Review.find().populate("author").populate("game");
-  res.render("reviews/reviewsList", { allReviews, isNotAuthor });
+
+  Review.find()
+  .populate("author")
+  .populate("game")
+  .then((rev)=>{
+    var allReviews = rev
+    const resultReviewList = allReviews.slice(startIndex,endIndex)
+    
+    res.render("reviews/reviewsList", { resultReviewList, isNotAuthor, previousPage, nextPage});
+  })
 });
 
 module.exports = router;
