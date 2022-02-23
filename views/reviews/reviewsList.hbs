@@ -22,7 +22,7 @@
 
 {{#if isNotAuthor}}
 
-<div class ="marginTop">
+<div >
  <div class="container">
   <div class="row">
     <!-- Team Member 1 -->
@@ -125,8 +125,10 @@
   </div>
 </div>
 </div>
-<nav aria-label="Page navigation example">
-  <ul class="pagination">
+
+<div class=" fixed-bottom">
+<nav aria-label="Page navigation example position-absolute bottom-0 start-50 translate-middle-x ">
+  <ul class="pagination justify-content-center flex-wrap">
     <li class="disabled">
       <a class="page-link" href="reviews?page={{previousPage}}&limit=9" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
@@ -144,5 +146,7 @@
     </li>
   </ul>
 </nav>
+</div>
+
 
 {{/if}}
