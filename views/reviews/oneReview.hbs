@@ -21,10 +21,10 @@
                     <img src="{{review.imageUrl}}" alt="" width="560">
                     <iframe width="560" height="315" src="{{review.videoUrl}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     {{#if userLiked}}
-                    <a href="/reviews/{{review._id}}/notlikes"><button>Dont like anymore...</button></a>
+                    <a href="/reviews/{{review._id}}/notlikes"><img src="/images/heart empty.png" alt="Unlike!"></a>
                     {{/if}}
                     {{#if userNotLiked}}
-                    <a href="/reviews/{{review._id}}/likes"><button>Like!</button></a>
+                    <a href="/reviews/{{review._id}}/likes"><img src="public\images\heart full.png" alt="Like!"></a>
                     {{/if}}
                    <p>Esta review tiene ==>"{{review.likes.length}}" likes  </p>
                   </div>

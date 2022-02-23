@@ -1,15 +1,18 @@
 
-<div class = "rowReview">
+<div class = "miki">
 
 {{#if isAuthor}}
 
 {{#each user.reviews}}
+<br>
+
+
  <div class="card" style="width: 18rem;">
     <img class="card-img-top" src="{{game.thumbnail}}" alt="Card image cap" />
     <div class="card-body">
       <h5 class="card-title">{{user.username}}</h5>
       <p class="card-text">{{title}}</p>
-      <a href="#" class="btn btn-primary">Details</a>
+      <a href="/reviews/{{this._id}}/details" class="btn btn-primary">Details</a>
       <a href="/reviews/{{this._id}}/edit" class="btn btn-primary">Edit</a>
     </div>
   </div>
