@@ -18,23 +18,131 @@
 
 {{/if}}
 
-
-
+</div>
 
 {{#if isNotAuthor}}
 
-{{#each allReviews}}
- <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="{{game.thumbnail}}" alt="Card image cap" />
-    <div class="card-body">
-      <h5 class="card-title">{{author.username}}</h5>
-      <p class="card-text">{{title}}</p>
-      <a href="#" class="btn btn-primary">Details</a>
+<div class ="marginTop">
+ <div class="container">
+  <div class="row">
+    <!-- Team Member 1 -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-0 shadow">
+      <a href="/reviews/{{resultReviewList.[0]._id}}/details"><img src="{{resultReviewList.[0].game.thumbnail}}" class="card-img-top" alt="..."></a>
+        <div class="card-body text-center">
+           <h4 class="card-title mb-0">"{{resultReviewList.[0].title}}"</h4>
+          <h5 class="card-title mb-0">{{resultReviewList.[0].author.username}}</h5>
+        
+        </div>
+      </div>
     </div>
+    <!-- Team Member 2 -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-0 shadow">
+        <a href="/reviews/{{resultReviewList.[1]._id}}/details"><img src="{{resultReviewList.[1].game.thumbnail}}" class="card-img-top" alt="..."></a>
+        <div class="card-body text-center">
+           <h4 class="card-title mb-0">"{{resultReviewList.[1].title}}"</h4>
+          <h5 class="card-title mb-0">{{resultReviewList.[1].author.username}}</h5>
+         
+        </div>
+      </div>
     </div>
-
-{{/each}}
-{{/if}}
-
-
+    <!-- Team Member 3 -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-0 shadow">
+         <a href="/reviews/{{resultReviewList.[2]._id}}/details"><img src="{{resultReviewList.[2].game.thumbnail}}" class="card-img-top" alt="..."></a>
+        <div class="card-body text-center">
+            <h4 class="card-title mb-0">"{{resultReviewList.[2].title}}"</h4>
+          <h5 class="card-title mb-0">{{resultReviewList.[2].author.username}}</h5>
+        
+        </div>
+      </div>
+    </div>
+    <!-- Team Member 4 -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-0 shadow">
+          <a href="/reviews/{{resultReviewList.[3]._id}}/details"><img src="{{resultReviewList.[3].game.thumbnail}}" class="card-img-top" alt="..."></a>
+        <div class="card-body text-center">
+            <h4 class="card-title mb-0">"{{resultReviewList.[3].title}}"</h4>
+          <h5 class="card-title mb-0">{{resultReviewList.[3].author.username}}</h5>
+       
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+<div class="container">
+  <div class="row">
+    <!-- Team Member 1 -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-0 shadow">
+         <a href="/reviews/{{resultReviewList.[4]._id}}/details"><img src="{{resultReviewList.[4].game.thumbnail}}" class="card-img-top" alt="..."></a>
+        <div class="card-body text-center">
+            <h4 class="card-title mb-0">"{{resultReviewList.[4].title}}"</h4>
+          <h5 class="card-title mb-0">{{resultReviewList.[4].author.username}}</h5>
+         
+        </div>
+      </div>
+    </div>
+    <!-- Team Member 2 -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-0 shadow">
+      <a href="/reviews/{{resultReviewList.[5]._id}}/details"><img src="{{resultReviewList.[5].game.thumbnail}}" class="card-img-top" alt="..."></a>
+        <div class="card-body text-center">
+            <h4 class="card-title mb-0">"{{resultReviewList.[5].title}}"</h4>
+          <h5 class="card-title mb-0">{{resultReviewList.[5].author.username}}</h5>
+        
+        </div>
+      </div>
+    </div>
+    <!-- Team Member 3 -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-0 shadow">
+      <a href="/reviews/{{resultReviewList.[6]._id}}/details"><img src="{{resultReviewList.[6].game.thumbnail}}" class="card-img-top" alt="..."></a>
+        <div class="card-body text-center">
+            <h4 class="card-title mb-0">"{{resultReviewList.[6].title}}"</h4>
+          <h5 class="card-title mb-0">{{resultReviewList.[6].author.username}}</h5>
+          
+        </div>
+      </div>
+    </div>
+    <!-- Team Member 4 -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-0 shadow">
+       <a href="/reviews/{{resultReviewList.[7]._id}}/details"><img src="{{resultReviewList.[7].game.thumbnail}}" class="card-img-top" alt="..."></a>
+        <div class="card-body text-center">
+            <h4 class="card-title mb-0">"{{resultReviewList.[7].title}}"</h4>
+          <h5 class="card-title mb-0">{{resultReviewList.[7].author.username}}</h5>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+    </div>
+  </div>
+</div>
+</div>
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="disabled">
+      <a class="page-link" href="reviews?page={{previousPage}}&limit=9" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li class="active"><a class="page-link" href="reviews?page=1&limit=16">1</a></li>
+    <li class="page-item"><a class="page-link" href="reviews?page=2&limit=16">2</a></li>
+    <li class="page-item"><a class="page-link" href="reviews?page=3&limit=16">3</a></li>
+    <li class="page-item"><a class="page-link" href="reviews?page=4&limit=16">4</a></li>
+   
+ 
+<a class="page-link" href="reviews?page={{nextPage}}&limit=9" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+{{/if}}
