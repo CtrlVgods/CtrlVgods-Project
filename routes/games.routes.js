@@ -37,12 +37,12 @@ router
         .then((review) => {
           User.findOneAndUpdate(
             { _id: authorId },
-            { $push: { reviews: review } },
+            { $push: { reviews: review } }, //PASAR SOLO REVIEW_ID
             { new: true }
           ).then(() => {
             Game.findOneAndUpdate(
               { id: apiId },
-              { $push: { reviews: review } },
+              { $push: { reviews: review } }, //PASAR SOLO REVIEW_ID
               { new: true }
             ).then(() => {
               res.redirect("/reviews");
@@ -78,16 +78,18 @@ router.get("/:gameId/details", (req, res) => {
 // PAGINATION
 
 router.get("/", (req, res) => {
-  const page = req.query.page
-  var integer = parseInt(page)
-  const nextPage = integer + 1
-  const previousPage = integer - 1
+  let page = req.query.page
+  page = parseInt(page)
+  if(page <=0) page=1;
+  if(page >= 23) page = 23
+  const nextPage = page + 1
+  const previousPage = page - 1 
   const limit = 16
-  
+
   const startIndex = (page -1) * limit;
   const endIndex = page * limit
 
-  
+  console.log("pages: ", page)
     Game.find()
     .then((games) => {
       
