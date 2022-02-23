@@ -19,16 +19,19 @@ router.get('/:reviewId/details', isLoggedIn,(req, res)=> {
   const reviewId = req.params.reviewId
   let userLiked = false;
   let userNotLiked = false;
+  let hasVideoUrl = false
   Review.findById(reviewId)
   .populate(["author","game","likes","comments"])
   .then((review)=>{
+    if(review.videoUrl.length > 5 && review.videoUrl.length < 80){hasVideoUrl = true} // argentinian solution for broken links
+    
     User.findById(req.session.currentUser)
     .then((user)=>{
      if(review.likes.includes(user.username)){
        userLiked = true
      } else{ userNotLiked = true}
 
-      res.render("../views/reviews/oneReview", {review, userLiked, userNotLiked})
+      res.render("../views/reviews/oneReview", {review, userLiked, userNotLiked, hasVideoUrl})
     })
   })
 })
@@ -168,6 +171,7 @@ router.get("/",  (req, res) => {
   var isNotAuthor = true
 
   Review.find()
+  .sort({likes: -1})
   .populate("author")
   .populate("game")
   .then((rev)=>{
