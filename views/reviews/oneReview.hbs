@@ -1,0 +1,41 @@
+<h1 class="text-center">Review</h1>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5 col-md-6 col-12 pb-4">
+              
+                <div class="comment mt-4 text-justify float-left"> 
+                    <div>
+
+                <img src="{{review.author.profilePic}}" alt="" class="rounded-circle" width="40" height="40">
+                    </div>
+                    <div>
+
+                <h3>{{review.author.username}}</h3>
+                    </div>
+                </div>
+
+                    <h4>{{review.title}}</h4> <span>{{createdAt}}</span> <br>
+                    <br>
+                    <p>{{review.description}}</p>
+                    <img src="{{review.imageUrl}}" alt="">
+                    {{#if userLiked}}
+                    <a href="/reviews/{{review._id}}/notlikes"><button>Dont like anymore...</button></a>
+                    {{/if}}
+                    {{#if userNotLiked}}
+                    <a href="/reviews/{{review._id}}/likes"><button>Like!</button></a>
+                    {{/if}}
+                   <p>Esta review tiene ==>"{{review.likes.length}}" likes  </p>
+                  </div>
+               
+            </div>
+            
+        </div>
+    </div>
+
+</section>
+
+<div class="text-center">
+
+
+
