@@ -56,9 +56,9 @@ a {
 }
 
 .layout-body {
-	background-image: url(https://wallpapercave.com/wp/wp2737387.jpg);
-	background-repeat: repeat;
-	background-size: cover;
+	background: linear-gradient(180deg, rgba(70,113,38,0.9307073171065301) 19%, rgba(94,130,37,1) 84%);
+	background: cover;
+	background-repeat: no-repeat;
 }
 
 .mvpUsers {
