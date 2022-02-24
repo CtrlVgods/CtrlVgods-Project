@@ -28,18 +28,22 @@
 <div >
  <div class="container">
   <div class="row">
-    <!-- Team Member 1 -->
+    
+    {{#if resultReviewList.[0]}}
+
     <div class="col-xl-3 col-md-6 mb-4">
       <div class="card border-0 shadow">
       <a href="/reviews/{{resultReviewList.[0]._id}}/details"><img src="{{resultReviewList.[0].game.thumbnail}}" class="card-img-top" alt="..."></a>
         <div class="card-body text-center">
            <h4 class="card-title mb-0">"{{resultReviewList.[0].title}}"</h4>
           <h5 class="card-title mb-0">{{resultReviewList.[0].author.username}}</h5>
-        
+
+        {{/if}}
+
         </div>
       </div>
     </div>
-    <!-- Team Member 2 -->
+    {{#if resultReviewList.[1]}}
     <div class="col-xl-3 col-md-6 mb-4">
       <div class="card border-0 shadow">
         <a href="/reviews/{{resultReviewList.[1]._id}}/details"><img src="{{resultReviewList.[1].game.thumbnail}}" class="card-img-top" alt="..."></a>
@@ -50,7 +54,8 @@
         </div>
       </div>
     </div>
-    <!-- Team Member 3 -->
+    {{/if}}
+    {{#if resultReviewList.[2]}}
     <div class="col-xl-3 col-md-6 mb-4">
       <div class="card border-0 shadow">
          <a href="/reviews/{{resultReviewList.[2]._id}}/details"><img src="{{resultReviewList.[2].game.thumbnail}}" class="card-img-top" alt="..."></a>
@@ -61,7 +66,8 @@
         </div>
       </div>
     </div>
-    <!-- Team Member 4 -->
+     {{/if}}
+    {{#if resultReviewList.[3]}}
     <div class="col-xl-3 col-md-6 mb-4">
       <div class="card border-0 shadow">
           <a href="/reviews/{{resultReviewList.[3]._id}}/details"><img src="{{resultReviewList.[3].game.thumbnail}}" class="card-img-top" alt="..."></a>
@@ -74,10 +80,11 @@
     </div>
   </div>
 </div>
-
+ {{/if}}
+  {{#if resultReviewList.[4]}}
 <div class="container">
   <div class="row">
-    <!-- Team Member 1 -->
+    
     <div class="col-xl-3 col-md-6 mb-4">
       <div class="card border-0 shadow">
          <a href="/reviews/{{resultReviewList.[4]._id}}/details"><img src="{{resultReviewList.[4].game.thumbnail}}" class="card-img-top" alt="..."></a>
@@ -88,7 +95,8 @@
         </div>
       </div>
     </div>
-    <!-- Team Member 2 -->
+    {{/if}}
+    {{#if resultReviewList.[5]}}
     <div class="col-xl-3 col-md-6 mb-4">
       <div class="card border-0 shadow">
       <a href="/reviews/{{resultReviewList.[5]._id}}/details"><img src="{{resultReviewList.[5].game.thumbnail}}" class="card-img-top" alt="..."></a>
@@ -99,7 +107,8 @@
         </div>
       </div>
     </div>
-    <!-- Team Member 3 -->
+    {{/if}}
+    {{#if resultReviewList.[6]}}
     <div class="col-xl-3 col-md-6 mb-4">
       <div class="card border-0 shadow">
       <a href="/reviews/{{resultReviewList.[6]._id}}/details"><img src="{{resultReviewList.[6].game.thumbnail}}" class="card-img-top" alt="..."></a>
@@ -110,7 +119,8 @@
         </div>
       </div>
     </div>
-    <!-- Team Member 4 -->
+    {{/if}}
+    {{#if resultReviewList.[7]}}
     <div class="col-xl-3 col-md-6 mb-4">
       <div class="card border-0 shadow">
        <a href="/reviews/{{resultReviewList.[7]._id}}/details"><img src="{{resultReviewList.[7].game.thumbnail}}" class="card-img-top" alt="..."></a>
@@ -124,6 +134,7 @@
   </div>
 </div>
 </div>
+{{/if}}
     </div>
   </div>
 </div>

@@ -38,14 +38,15 @@ router.get("/", async (req, res)=>{
     if(req.session.currentUser){
         user = await User.findById(req.session.currentUser._id)
     }
-   const popularUsers = await User.find().limit(3)
-   const popularGames = await Game.find().limit(4)
-   const reviewResult = await Review.find().sort({likes: -1}).populate("author").populate("game").limit(6)
+    const popularUsers = await User.find().populate("reviews").sort({reviews: -1}).limit(3)
+    const popularGames = await Game.find().populate("reviews").sort({reviews: -1}).limit(4)
+    const reviewResult = await Review.find().sort({likes: -1}).populate("author").populate("game")
    if(req.session.currentUser){
        res.render("index", {reviewResult, popularGames, popularUsers, user})
    } else{
     res.render("index", {reviewResult, popularGames, popularUsers})
    }
+
 })
 
 module.exports = router;
