@@ -32,7 +32,7 @@ router
     const { title, description, videoUrl } = req.body;
 
     Game.findOne({ id: apiId }).then((game) => {
-      console.log();
+      
       Review.create({ title, imageUrl, videoUrl, author: authorId, description, game: game._id })
         .then((review) => {
           User.findOneAndUpdate(
@@ -69,15 +69,46 @@ router.get("/:gameId/details", (req, res) => {
   gamesApiHandler
     .getOneGame(apiId)
     .then((game) => {
-      console.log(game)
+      
       res.render("games/oneGame", { gameDetail: game, dbGame });
     });
   })
 });
 
+// GAMES BY GENRE
+
+
+router.get("/genre", (req, res)=>{
+  
+  let {page, genre} = req.query
+  page = parseInt(page)
+  if(page <=0) page=1;
+ 
+  const nextPage = page + 1
+  const previousPage = page - 1 
+  const limit = 16
+
+  const startIndex = (page -1) * limit;
+  const endIndex = page * limit
+
+  gamesApiHandler
+    .getGameByGenre(genre)
+      .then((games)=>{
+        
+        if(page >= (games.length/limit) ) page = Math.floor(games.length/limit)
+        const resultGameList = games.slice(startIndex,endIndex)
+
+        res.render("games/gameByGenre", {genre, resultGameList, previousPage, nextPage})
+
+      }).catch((err) =>console.log(err))
+})
+
+
+
 // PAGINATION
 
 router.get("/", (req, res) => {
+  console.log("asdfsaf")
   let page = req.query.page
   page = parseInt(page)
   if(page <=0) page=1;
@@ -103,7 +134,6 @@ router.get("/", (req, res) => {
       console.log(err);
     });
 });
-
 
 
 
