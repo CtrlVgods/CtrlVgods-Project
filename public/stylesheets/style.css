@@ -49,7 +49,30 @@ body {
 	align-items: flex-end;
 	align-content: center;
 }
+.rowPicandName {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: stretch;
+}
+.rowuserAndtitle {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	align-content: center;
+}
 
+.blackBackground {
+	background-color: rgb(60, 60, 60, 0.8)
+}
+
+.space {
+	margin-right: 15px ;
+}
 .center-screenshot {
 	display: flex;
 	flex-direction: row;

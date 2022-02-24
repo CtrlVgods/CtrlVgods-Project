@@ -46,18 +46,78 @@
   </div>
 </div>
 
-<h2 class="indexReviews2">Check our latest reviews!</h2>
+<h2 class="indexReviews2">Check our most liked reviews!</h2>
 
 <div class="landingBg">
 <div class="landing">
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="width: 60%; box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);">
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="width: 40%; box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);">
     <div class="carousel-inner">
       {{#each reviewResult}}
-      <div class="carousel-item {{#unless @index}} active {{/unless}}">
-        <img src="{{game.thumbnail}}" class="d-block w-100" alt="...">
+<div class="carousel-item {{#unless @index}} active {{/unless}}">
+
+ <div class="card bg-dark text-white ">
+  <img src="{{game.thumbnail}}" class="card-img" alt="game img">
+  <div class="card-img-overlay">
+    <div class="rowuserAndtitle blackBackground" >
+      <div class="rowPicandName ">
+    <p class="card-text"><img src="{{author.profilePic}}" alt="" class="rounded-circle space" width="40" height="40"></p>
+  <h5><span class="">{{author.username}}</span></h5>
+      </div>
+      <div>
+    <h5 class="card-title"><span class="">" {{title}} "</span></h5>
+      </div>
+    </div>
+  </div>
+</div>
+
       </div>
       {{/each }}
     </div>
+
+    
+
+
+
+    {{!-- 
+
+
+
+    <div class="card" >
+   
+    <div class="card-body">
+      <div class="rowReview" >
+        <div class="rowReview">
+      <img src="{{author.profilePic}}" alt="" class="rounded-circle space" width="40" height="40">
+      <h5 class="card-title">{{author.username}}</h5>
+
+        </div>
+      <p class="card-text">" {{title}} "</p>
+      </div>
+      <a href="/reviews/{{_id}}/details" class="btn btn-primary"><img src="{{game.thumbnail}}" class="d-block w-100" alt="..."></a>
+  
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+    
+    <div class="card bg-dark text-white">
+  <img src="..." class="card-img" alt="...">
+  <div class="card-img-overlay">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    <p class="card-text">Last updated 3 mins ago</p>
+  </div>
+</div>
+    
+     --}}
+
+
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
