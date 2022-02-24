@@ -1,4 +1,4 @@
-<h1 class="text-center">Review</h1>
+<h1 class="text-center indexReviews">Review</h1>
 <section>
     <div class="container">
         <div class="row">
@@ -7,17 +7,18 @@
                 <div class="comment mt-4 text-justify float-left"> 
                     <div>
 
-                <img src="{{review.author.profilePic}}" alt="" class="rounded-circle" width="40" height="40">
+                {{!-- <img src="{{review.author.profilePic}}" alt="" class="rounded-circle" width="40" height="40"> --}}
                     </div>
                     <div>
 
-                <h3>{{review.author.username}}</h3>
+                <h3 class="reviewHeaders">by: {{review.author.username}} <img src="{{review.author.profilePic}}" alt="" class="rounded-circle" width="40" height="40"></h3>
                     </div>
                 </div>
 
-                    <h4>{{review.title}}</h4> <span>{{createdAt}}</span> <br>
+                    <h4 class="reviewHeaders2">{{review.title}}</h4> <span>{{createdAt}}</span> <br>
                     <br>
-                    <p>{{review.description}}</p>
+                    
+                    <p class="reviewDescription">{{review.description}}</p>
                     {{#if review.imageUrl}}
                     <img src="{{review.imageUrl}}" alt="" width="560">
                     {{/if}}
@@ -39,8 +40,3 @@
     </div>
 
 </section>
-
-<div class="text-center">
-
-
-
