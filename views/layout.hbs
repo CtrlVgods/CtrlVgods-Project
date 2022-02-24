@@ -10,7 +10,7 @@
   <body class="layout-body" class="container-responsive"style="min-height: 100%">
 
 
-      <nav class="navbar navbar-expand-lg">
+      <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
 
           <a class="navbar-item" href="/">
@@ -22,17 +22,18 @@
 
             <form action = "/search/gameName" method = "POST"class="d-flex">
               <input name ="gameName" class="form-control me-2" type="search" placeholder="Search Game" aria-label="Search">
-              <button class="btn btn-outline-light" type="submit">Search</button>
+              <button class="btn btn-outline-light" type="submit">Go!</button>
             </form>
 
+
+        
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
             <span class="navbar-toggler-icon" ></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-              <li class="nav-item">
-                <a class="nav-link active navbar-brand" aria-current="page" href="/">Home</a>
-              </li>
+
+
 
               <li class="nav-item">
                 <a class="nav-link" href="/games?page=1&limit=10">All Games</a>
