@@ -56,13 +56,12 @@
 <div class="carousel-item {{#unless @index}} active {{/unless}}">
 
  <div class="card bg-dark text-white centerPic">
-  <img src="{{game.thumbnail}}" class="card-img" alt="game img">
-  <div class="card-img-overlay">
-  </div>
+  <a href="/reviews/{{_id}}/details"><img src="{{game.thumbnail}}" class="card-img" alt="game img"></a>
+  
     <div class="rowuserAndtitle blackBackground" >
       <div class="rowPicandName ">
-    <p class="card-text"><img src="{{author.profilePic}}" alt="" class="rounded-circle space" width="40" height="40"></p>
-  <h5><span class="">{{author.username}}</span></h5>
+    <p class="card-text"><img src="{{author.profilePic}}" alt="" class="rounded-circle space" width="40" height="40">{{author.username}}</p>
+
       </div>
       <div>
     <h5 class="card-title"><span class="rightMargin">" {{title}} "</span></h5>
