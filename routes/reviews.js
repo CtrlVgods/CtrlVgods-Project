@@ -19,6 +19,7 @@ router.get('/:reviewId/details', isLoggedIn,(req, res)=> {
   const reviewId = req.params.reviewId
   let userLiked = false;
   let userNotLiked = false;
+  let hasVideo = true
  
   Review.findById(reviewId)
   .populate(["author","game","likes","comments"])
@@ -29,8 +30,9 @@ router.get('/:reviewId/details', isLoggedIn,(req, res)=> {
      if(review.likes.includes(user.username)){
        userLiked = true
      } else{ userNotLiked = true}
-
-      res.render("../views/reviews/oneReview", {review, userLiked, userNotLiked})
+     if(review.videoUrl == ""){hasVideo = false}
+     console.log(hasVideo)
+      res.render("../views/reviews/oneReview", {review, userLiked, userNotLiked, hasVideo})
     })
   })
 })
