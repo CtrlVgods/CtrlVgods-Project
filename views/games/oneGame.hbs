@@ -6,8 +6,13 @@
   <body>
 
 <div class="container">
+  <div class="row  ">
+      <h1 class="d-flex justify-content-center">{{gameDetail.title}}</h1>
+  </div>
+
+
   <div class="row">
-   <div id="myCarousel" class="carousel slide col" data-ride="carousel">
+   <div id="myCarousel" class="carousel slide col-sm-7" data-ride="carousel">
   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       {{#each gameDetail.screenshots}}
@@ -28,9 +33,9 @@
 
     
   </div>
-    <div class="container text-start col" >
-          <div class="col"> 
-      <h1>{{gameDetail.title}}</h1>
+
+          <div class="col-sm-2"> 
+
       <h4>Genre:</h4>
       <p> {{gameDetail.genre}}</p>
         <h4>Publisher:</h4>
@@ -39,9 +44,11 @@
         <p>{{gameDetail.developer}}</p>
       <h4>Release Date:</h4>
         <p>{{gameDetail.release_date}}</p>
-      <h4>Minimum System Requirements:</h4>
+
           </div>
-          <div class="col"> 
+
+          <div class="col-sm-2"> 
+      <h4>Minimum System Requirements:</h4>
       <ul class="list-unstyled">
         <li>OS: {{gameDetail.minimum_system_requirements.os}}</li>
         <li>Processor: {{gameDetail.minimum_system_requirements.processor}}</li>
@@ -49,8 +56,6 @@
         <li>Graphics: {{gameDetail.minimum_system_requirements.graphics}}</li>
         <li>Storage: {{gameDetail.minimum_system_requirements.storage}}</li>
       </ul>
-         </div>
-
 
     </div>
   </div>
@@ -64,7 +69,7 @@
   </button>
 </p>
 <div class="collapse" id="collapseExample">
-  <div class="card card-body" style="margin-left: 5%; margin-right: 5%; margin-bottom: 3%">
+  <div class="card card-body" style="margin-left: 5%; margin-right: 5%; margin-bottom: 3%; padding-bottom: 0px">
   <p>{{gameDetail.description}}</p><br>
   </div>
 </div>
@@ -100,7 +105,7 @@
 
 <div class="text-center">
    <br>
-  <a  class="btn btn-primary " href="/games/{{gameDetail.id}}/details/create-review">Make your Review!</a>
+  <a  class="btn btn-dark " href="/games/{{gameDetail.id}}/details/create-review">Make your Review!</a>
 </div>
 
 
