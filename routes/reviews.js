@@ -20,6 +20,8 @@ router.get('/:reviewId/details', isLoggedIn,(req, res)=> {
   let userLiked = false;
   let userNotLiked = false;
   let hasVideo = true
+
+  
  
   Review.findById(reviewId)
   .populate(["author","game","likes","comments"])
@@ -32,7 +34,7 @@ router.get('/:reviewId/details', isLoggedIn,(req, res)=> {
      } else{ userNotLiked = true}
      if(review.videoUrl == ""){hasVideo = false}
      console.log(hasVideo)
-      res.render("../views/reviews/oneReview", {review, userLiked, userNotLiked, hasVideo})
+      res.render("../views/reviews/oneReview", {review, userLiked, userNotLiked, hasVideo, user})
     })
   })
 })

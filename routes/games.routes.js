@@ -58,21 +58,46 @@ router
 router.get("/:gameId/details", (req, res) => {
   const apiId = req.params.gameId;
 
-  Game.findOne({id: apiId})
-   .populate({
-    path : 'reviews',
-    populate : {
-      path : 'author'
-    }})
-  
-  .then((dbGame) => {
-  gamesApiHandler
-    .getOneGame(apiId)
-    .then((game) => {
+  if(req.session.currentUser){
+    User.findById(req.session.currentUser._id)
+    .then((user)=>{
+      Game.findOne({id: apiId})
+      .populate({
+       path : 'reviews',
+       populate : {
+         path : 'author'
+       }})
+     
+     .then((dbGame) => {
+     gamesApiHandler
+       .getOneGame(apiId)
+       .then((game) => {
+         
+         res.render("games/oneGame", { gameDetail: game, dbGame, user });
+       });
+     })
+
+    })}else{
+
+      Game.findOne({id: apiId})
+       .populate({
+        path : 'reviews',
+        populate : {
+          path : 'author'
+        }})
       
-      res.render("games/oneGame", { gameDetail: game, dbGame });
-    });
-  })
+      .then((dbGame) => {
+      gamesApiHandler
+        .getOneGame(apiId)
+        .then((game) => {
+          
+          res.render("games/oneGame", { gameDetail: game, dbGame });
+        });
+      })
+
+    }
+
+
 });
 
 // GAMES BY GENRE
