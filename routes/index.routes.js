@@ -36,7 +36,7 @@ const User = require("../models/User.model");
 router.get("/", async (req, res)=>{
    const popularUsers = await User.find().limit(3)
    const popularGames = await Game.find().limit(4)
-   const reviewResult = await Review.find().populate("author").populate("game").limit(6)
+   const reviewResult = await Review.find().sort({likes: -1}).populate("author").populate("game").limit(6)
        res.render("index", {reviewResult, popularGames, popularUsers})
 })
 
