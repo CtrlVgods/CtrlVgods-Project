@@ -1,8 +1,8 @@
-<h1 class="text-center" style="margin-top: 30px">Hi {{username}}!</h1>
+<h1 class="text-center" style="margin-top: 30px">Hi {{user.username}}!</h1>
 <h3 class="text-center">Good to see you again!</h3>
 
 <div class="d-flex justify-content-center" style="margin-top: 20px"> 
-    <img class = "rounded-circle" src="{{profilePic}}" alt="Profile Pic" >
+    <img class = "rounded-circle" src="{{user.profilePic}}" alt="Profile Pic" >
 </div>
 
 <div class="d-flex justify-content-center" style="margin-top: 20px"> 
@@ -16,5 +16,5 @@
 
 <div>
     <br>
-    <h3>You reviewed {{reviews.length}} games</h3>
+    <h3>You reviewed {{user.reviews.length}} games</h3>
 </div>

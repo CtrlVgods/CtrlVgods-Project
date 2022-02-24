@@ -91,16 +91,34 @@ router.get("/genre", (req, res)=>{
   const startIndex = (page -1) * limit;
   const endIndex = page * limit
 
-  gamesApiHandler
-    .getGameByGenre(genre)
-      .then((games)=>{
-        
-        if(page >= (games.length/limit) ) page = Math.floor(games.length/limit)
-        const resultGameList = games.slice(startIndex,endIndex)
+  if(req.session.currentUser){
+    User.findById(req.session.currentUser._id)
+    .then((user)=>{
+      gamesApiHandler
+      .getGameByGenre(genre)
+        .then((games)=>{
+          
+          if(page >= (games.length/limit) ) page = Math.floor(games.length/limit)
+          const resultGameList = games.slice(startIndex,endIndex)
+  
+          res.render("games/gameByGenre", {genre, resultGameList, previousPage, nextPage, user})
+  
+        }).catch((err) =>console.log(err))
 
-        res.render("games/gameByGenre", {genre, resultGameList, previousPage, nextPage})
+    })} else {
+      gamesApiHandler
+        .getGameByGenre(genre)
+          .then((games)=>{
+            
+            if(page >= (games.length/limit) ) page = Math.floor(games.length/limit)
+            const resultGameList = games.slice(startIndex,endIndex)
+    
+            res.render("games/gameByGenre", {genre, resultGameList, previousPage, nextPage})
+    
+          }).catch((err) =>console.log(err))
 
-      }).catch((err) =>console.log(err))
+    }
+
 })
 
 
@@ -119,20 +137,38 @@ router.get("/", (req, res) => {
 
   const startIndex = (page -1) * limit;
   const endIndex = page * limit
-
-  
+if(req.session.currentUser){
+  User.findById(req.session.currentUser._id)
+  .then((user)=>{
     Game.find()
     .then((games) => {
       
       const resultGameList = games.slice(startIndex,endIndex)
       
-      res.render("games/gameList", {resultGameList, previousPage, nextPage} );
+      res.render("games/gameList", {resultGameList, previousPage, nextPage, user} );
       
     
     })
-    .catch((err) => {
-      console.log(err);
-    });
+
+  }).catch((err) => {
+    console.log(err);
+  })
+}else {
+  
+  Game.find()
+  .then((games) => {
+    
+    const resultGameList = games.slice(startIndex,endIndex)
+    
+    res.render("games/gameList", {resultGameList, previousPage, nextPage} );
+    
+  
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+}
+   
 });
 
 

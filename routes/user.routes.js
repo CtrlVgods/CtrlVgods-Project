@@ -41,7 +41,7 @@ router.route('/profile', isLoggedIn,)
     .populate("comments")
     .then((user)=>{
        
-        res.render('../views/user/profile', user);
+        res.render('../views/user/profile', {user});
     })
 })
 

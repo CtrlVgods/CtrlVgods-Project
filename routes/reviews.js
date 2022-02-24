@@ -168,17 +168,33 @@ router.get("/",  (req, res) => {
   const startIndex = (page - 1) * limit;
   const endIndex = page * limit
   var isNotAuthor = true
+if(req.session.currentUser){
+  User.findById(req.session.currentUser._id)
+  .then((user)=>{
+    Review.find()
+    .sort({likes: -1})
+    .populate("author")
+    .populate("game")
+    .then((rev)=>{
+      var allReviews = rev
+      const resultReviewList = allReviews.slice(startIndex,endIndex)
+      
+      res.render("reviews/reviewsList", { resultReviewList, isNotAuthor, previousPage, nextPage, user});
+    })
 
-  Review.find()
-  .sort({likes: -1})
-  .populate("author")
-  .populate("game")
-  .then((rev)=>{
-    var allReviews = rev
-    const resultReviewList = allReviews.slice(startIndex,endIndex)
-    
-    res.render("reviews/reviewsList", { resultReviewList, isNotAuthor, previousPage, nextPage});
-  })
+  })} else{
+
+    Review.find()
+    .sort({likes: -1})
+    .populate("author")
+    .populate("game")
+    .then((rev)=>{
+      var allReviews = rev
+      const resultReviewList = allReviews.slice(startIndex,endIndex)
+      
+      res.render("reviews/reviewsList", { resultReviewList, isNotAuthor, previousPage, nextPage});
+    })
+  }
 });
 
 module.exports = router;
