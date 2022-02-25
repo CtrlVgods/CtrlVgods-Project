@@ -6,7 +6,6 @@ const fileUploader =  require("../config/cloudinary.js")
 
 /* GET users listing. */
 
-
 router.route('/profile/:id/edit', isLoggedIn,) 
 .get((req, res)=> {
     const userId = req.session.currentUser
